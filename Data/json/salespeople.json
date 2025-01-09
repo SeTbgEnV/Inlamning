@@ -1,0 +1,30 @@
+[
+    {
+        "salesRep": "John Doe",
+        "companyName": "Maxi",
+        "address": "KungRoad 1",
+        "email": "maxi.rep@gmail.com",
+        "phoneNumber": "123-456-789"
+    },
+    {
+        "salesRep": "Erik Berg",
+        "companyName": "Coop",
+        "address": "Bigstreet 2",
+        "email": "Coop.rep@gmail.com",
+        "phoneNumber": "322-313-555"
+    },
+    {
+        "salesRep": "Sam Smith",
+        "companyName": "City Gross",
+        "address": "Bigstreet 3",
+        "email": "CG.rep@gmail.com",
+        "phoneNumber": "782-111-415"
+    },
+    {
+        "salesRep": "Fehim Kaya",
+        "companyName": "Netto",
+        "address": "Smallstreet 4",
+        "email": "Netto.rep@gmail.com",
+        "phoneNumber": "898-111-771"
+    }
+]
