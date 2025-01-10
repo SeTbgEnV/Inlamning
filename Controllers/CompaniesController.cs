@@ -36,15 +36,15 @@ public class CompanyController(DataContext context) : ControllerBase
         var company = await _context.Salespeople
         .Include(Salesperson => Salesperson.Products)
         .Where(Salesperson => Salesperson.CompanyName == Name)
-        .Select(company => new
+        .Select(c => new
         {
-            company.CompanyName,
-            company.SalespersonId,
-            company.SalesRep,
-            company.Address,
-            company.Email,
-            company.PhoneNumber,
-            Products = company.Products.Select(p => new
+            c.CompanyName,
+            c.SalespersonId,
+            c.SalesRep,
+            c.Address,
+            c.Email,
+            c.PhoneNumber,
+            Products = c.Products.Select(p => new
             {
                 p.ProductId,
                 p.ItemNumber,

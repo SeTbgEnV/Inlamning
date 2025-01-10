@@ -21,7 +21,7 @@ namespace MormorDagnysInlämning.Controllers
                 .Where(Salesperson => Salesperson.SalespersonId == id)
                 .SingleOrDefaultAsync();
 
-            if (supplier != null)
+            if (supplier == null)
             {
                 return BadRequest(new { success = false, StatusCode = 400, message = "Supplier not found" });
             }

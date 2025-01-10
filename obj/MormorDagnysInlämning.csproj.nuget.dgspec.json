@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\vikto\\OneDrive\\Skrivbord\\Inl-mningsuppgift2-main\\MormorDagnysInlämning.csproj": {}
+    "C:\\Users\\vikto\\OneDrive\\Skrivbord\\ViktorEngmanInlämning\\MormorDagnysInlämning.csproj": {}
   },
   "projects": {
-    "C:\\Users\\vikto\\OneDrive\\Skrivbord\\Inl-mningsuppgift2-main\\MormorDagnysInlämning.csproj": {
+    "C:\\Users\\vikto\\OneDrive\\Skrivbord\\ViktorEngmanInlämning\\MormorDagnysInlämning.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\vikto\\OneDrive\\Skrivbord\\Inl-mningsuppgift2-main\\MormorDagnysInlämning.csproj",
+        "projectUniqueName": "C:\\Users\\vikto\\OneDrive\\Skrivbord\\ViktorEngmanInlämning\\MormorDagnysInlämning.csproj",
         "projectName": "MormorDagnysInlämning",
-        "projectPath": "C:\\Users\\vikto\\OneDrive\\Skrivbord\\Inl-mningsuppgift2-main\\MormorDagnysInlämning.csproj",
+        "projectPath": "C:\\Users\\vikto\\OneDrive\\Skrivbord\\ViktorEngmanInlämning\\MormorDagnysInlämning.csproj",
         "packagesPath": "C:\\Users\\vikto\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\vikto\\OneDrive\\Skrivbord\\Inl-mningsuppgift2-main\\obj\\",
+        "outputPath": "C:\\Users\\vikto\\OneDrive\\Skrivbord\\ViktorEngmanInlämning\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
