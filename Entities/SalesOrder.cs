@@ -1,4 +1,4 @@
-namespace MormorDagnysInlämning.Entities;
+namespace ViktorEngmanInlämning.Entities;
 
     public class SalesOrder
     {

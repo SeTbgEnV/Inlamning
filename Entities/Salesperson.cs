@@ -1,4 +1,4 @@
-namespace MormorDagnysInlämning.Entities;
+namespace ViktorEngmanInlämning.Entities;
 
     public class Salesperson
     {
@@ -10,5 +10,6 @@ namespace MormorDagnysInlämning.Entities;
         public string PhoneNumber { get; set; }
         public Product Product { get; set; }
         public IList<Product> Products { get; set; }
+        public IList<SupplierAddress> SupplierAddresses { get; set; } = [];
 
     }

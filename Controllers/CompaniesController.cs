@@ -1,8 +1,8 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using MormorDagnysInlämning.Data;
-using MormorDagnysInlämning.Entities;
+using ViktorEngmanInlämning.Data;
+using ViktorEngmanInlämning.Entities;
 
 namespace MormorDagnysInlämning.Controllers;
 

@@ -1,12 +1,11 @@
 using System.IdentityModel.Tokens.Jwt;
-using System.Net;
 using System.Security.Claims;
 using System.Text;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.IdentityModel.Tokens;
-using MormorDagnysInlämning.Entities;
+using ViktorEngmanInlämning.Entities;
 
-namespace MormorDagnysInlämning.Services;
+namespace ViktorEngmanInlämning.Services;
 
 public class TokenService
 {

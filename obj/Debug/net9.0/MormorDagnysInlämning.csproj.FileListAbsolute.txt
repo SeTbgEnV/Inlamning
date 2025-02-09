@@ -482,3 +482,5 @@ C:\Users\vikto\OneDrive\Skrivbord\ViktorEngmanInlämning\obj\Debug\net9.0\refint
 C:\Users\vikto\OneDrive\Skrivbord\ViktorEngmanInlämning\obj\Debug\net9.0\MormorDagnysInlämning.pdb
 C:\Users\vikto\OneDrive\Skrivbord\ViktorEngmanInlämning\obj\Debug\net9.0\MormorDagnysInlämning.genruntimeconfig.cache
 C:\Users\vikto\OneDrive\Skrivbord\ViktorEngmanInlämning\obj\Debug\net9.0\ref\MormorDagnysInlämning.dll
+C:\Users\vikto\OneDrive\Skrivbord\ViktorEngmanInlämning\bin\Debug\net9.0\MySqlConnector.dll
+C:\Users\vikto\OneDrive\Skrivbord\ViktorEngmanInlämning\bin\Debug\net9.0\Pomelo.EntityFrameworkCore.MySql.dll

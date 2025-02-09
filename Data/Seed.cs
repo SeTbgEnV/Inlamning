@@ -1,8 +1,8 @@
 using System.Text.Json;
-using MormorDagnysInlämning.Data;
-using MormorDagnysInlämning.Entities;
+using ViktorEngmanInlämning.Data;
+using ViktorEngmanInlämning.Entities;
 
-namespace MormorDagnys.Data.Migrations;
+namespace ViktorEngmanInlämning.Data.Migrations;
 
 public class Seed
 {

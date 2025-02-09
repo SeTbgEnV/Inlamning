@@ -1,17 +1,21 @@
 using System.Text;
 using System.Text.Json.Serialization;
+using eshop.api;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
-using MormorDagnys.Data.Migrations;
-using MormorDagnysInlämning.Data;
-using MormorDagnysInlämning.Entities;
-using MormorDagnysInlämning.Services;
+using ViktorEngmanInlämning.Data.Migrations;
+using ViktorEngmanInlämning.Data;
+using ViktorEngmanInlämning.Entities;
+using ViktorEngmanInlämning.Interfaces;
+using ViktorEngmanInlämning.Services;
 
 var builder = WebApplication.CreateBuilder(args);
+var serverVersion = new MySqlServerVersion(new Version(9, 1, 0));
 builder.Services.AddDbContext<DataContext>(options =>
 {
+    //options.UseMySql(builder.Configuration.GetConnectionString("MySQL"), serverVersion);
     options.UseSqlite(builder.Configuration.GetConnectionString("DevConnection"));
 });
 
@@ -29,7 +33,12 @@ builder.Services.AddIdentityCore<User>(Options =>
     .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<DataContext>();
 
-    builder.Services.AddScoped<TokenService>();
+builder.Services.AddScoped<TokenService>();
+builder.Services.AddScoped<ISupplierRepository, SupplierRepository>();
+builder.Services.AddScoped<ICustomerRepository, CustomerRepository>();
+builder.Services.AddScoped<IAddressRepository, AddressRepository>();
+
+builder.Services.AddControllers();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -59,11 +68,11 @@ var Services = scope.ServiceProvider;
 try
 {
     var context = Services.GetRequiredService<DataContext>();
-    await context.Database.MigrateAsync();
-    await Seed.LoadSalesPeople(context);
-    await Seed.LoadProducts(context);
-    await Seed.LoadSalesOrders(context);
-    await Seed.LoadOrderItems(context);
+    // await context.Database.MigrateAsync();
+    // await Seed.LoadSalesPeople(context);
+    // await Seed.LoadProducts(context);
+    // await Seed.LoadSalesOrders(context);
+    // await Seed.LoadOrderItems(context);
 }
 catch (Exception ex)
 {

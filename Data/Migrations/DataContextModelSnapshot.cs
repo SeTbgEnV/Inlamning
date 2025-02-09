@@ -3,7 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using MormorDagnysInlämning.Data;
+using ViktorEngmanInlämning.Data;
 
 #nullable disable
 
@@ -145,7 +145,83 @@ namespace MormorDagnysInlämning.Data.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("MormorDagnysInlämning.Entities.OrderItem", b =>
+            modelBuilder.Entity("ViktorEngmanInlämning.Entities.Address", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("AddressLine")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("AddressTypeId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("PostalAddressId")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AddressTypeId");
+
+                    b.HasIndex("PostalAddressId");
+
+                    b.ToTable("Addresses");
+                });
+
+            modelBuilder.Entity("ViktorEngmanInlämning.Entities.AddressType", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Value")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("AddressTypes");
+                });
+
+            modelBuilder.Entity("ViktorEngmanInlämning.Entities.Customer", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Email")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("FirstName")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("LastName")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Phone")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Customers");
+                });
+
+            modelBuilder.Entity("ViktorEngmanInlämning.Entities.CustomerAddress", b =>
+                {
+                    b.Property<int>("AddressId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("CustomerId")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("AddressId", "CustomerId");
+
+                    b.HasIndex("CustomerId");
+
+                    b.ToTable("CustomerAddresses");
+                });
+
+            modelBuilder.Entity("ViktorEngmanInlämning.Entities.OrderItem", b =>
                 {
                     b.Property<int>("ProductId")
                         .HasColumnType("INTEGER");
@@ -166,7 +242,24 @@ namespace MormorDagnysInlämning.Data.Migrations
                     b.ToTable("OrderItems");
                 });
 
-            modelBuilder.Entity("MormorDagnysInlämning.Entities.Product", b =>
+            modelBuilder.Entity("ViktorEngmanInlämning.Entities.PostalAddress", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("City")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("PostalCode")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("PostalAddresses");
+                });
+
+            modelBuilder.Entity("ViktorEngmanInlämning.Entities.Product", b =>
                 {
                     b.Property<int>("ProductId")
                         .ValueGeneratedOnAdd()
@@ -190,14 +283,17 @@ namespace MormorDagnysInlämning.Data.Migrations
                     b.Property<int>("SalesRepId")
                         .HasColumnType("INTEGER");
 
+                    b.Property<int?>("SalespersonId")
+                        .HasColumnType("INTEGER");
+
                     b.HasKey("ProductId");
 
-                    b.HasIndex("SalesRepId");
+                    b.HasIndex("SalespersonId");
 
                     b.ToTable("Products");
                 });
 
-            modelBuilder.Entity("MormorDagnysInlämning.Entities.SalesOrder", b =>
+            modelBuilder.Entity("ViktorEngmanInlämning.Entities.SalesOrder", b =>
                 {
                     b.Property<int>("SalesOrderId")
                         .ValueGeneratedOnAdd()
@@ -211,7 +307,7 @@ namespace MormorDagnysInlämning.Data.Migrations
                     b.ToTable("SalesOrders");
                 });
 
-            modelBuilder.Entity("MormorDagnysInlämning.Entities.Salesperson", b =>
+            modelBuilder.Entity("ViktorEngmanInlämning.Entities.Salesperson", b =>
                 {
                     b.Property<int>("SalespersonId")
                         .ValueGeneratedOnAdd()
@@ -242,7 +338,46 @@ namespace MormorDagnysInlämning.Data.Migrations
                     b.ToTable("Salespeople");
                 });
 
-            modelBuilder.Entity("MormorDagnysInlämning.Entities.User", b =>
+            modelBuilder.Entity("ViktorEngmanInlämning.Entities.SupplierAddress", b =>
+                {
+                    b.Property<int>("AddressId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("SupplierId")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("AddressId", "SupplierId");
+
+                    b.HasIndex("SupplierId");
+
+                    b.ToTable("SupplierAddresses");
+                });
+
+            modelBuilder.Entity("ViktorEngmanInlämning.Entities.SupplierProduct", b =>
+                {
+                    b.Property<int>("ProductId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("SalespersonId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("ItemNumber")
+                        .HasColumnType("TEXT");
+
+                    b.Property<decimal>("Price")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("ProductId", "SalespersonId");
+
+                    b.HasIndex("ProductId")
+                        .IsUnique();
+
+                    b.HasIndex("SalespersonId");
+
+                    b.ToTable("SupplierProducts");
+                });
+
+            modelBuilder.Entity("ViktorEngmanInlämning.Entities.User", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("TEXT");
@@ -323,7 +458,7 @@ namespace MormorDagnysInlämning.Data.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
                 {
-                    b.HasOne("MormorDagnysInlämning.Entities.User", null)
+                    b.HasOne("ViktorEngmanInlämning.Entities.User", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -332,7 +467,7 @@ namespace MormorDagnysInlämning.Data.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
-                    b.HasOne("MormorDagnysInlämning.Entities.User", null)
+                    b.HasOne("ViktorEngmanInlämning.Entities.User", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -347,7 +482,7 @@ namespace MormorDagnysInlämning.Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("MormorDagnysInlämning.Entities.User", null)
+                    b.HasOne("ViktorEngmanInlämning.Entities.User", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -356,22 +491,60 @@ namespace MormorDagnysInlämning.Data.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
-                    b.HasOne("MormorDagnysInlämning.Entities.User", null)
+                    b.HasOne("ViktorEngmanInlämning.Entities.User", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("MormorDagnysInlämning.Entities.OrderItem", b =>
+            modelBuilder.Entity("ViktorEngmanInlämning.Entities.Address", b =>
                 {
-                    b.HasOne("MormorDagnysInlämning.Entities.Product", "Product")
-                        .WithMany()
+                    b.HasOne("ViktorEngmanInlämning.Entities.AddressType", "AddressType")
+                        .WithMany("Addresses")
+                        .HasForeignKey("AddressTypeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ViktorEngmanInlämning.Entities.PostalAddress", "PostalAddress")
+                        .WithMany("Addresses")
+                        .HasForeignKey("PostalAddressId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("AddressType");
+
+                    b.Navigation("PostalAddress");
+                });
+
+            modelBuilder.Entity("ViktorEngmanInlämning.Entities.CustomerAddress", b =>
+                {
+                    b.HasOne("ViktorEngmanInlämning.Entities.Address", "Address")
+                        .WithMany("CustomerAddresses")
+                        .HasForeignKey("AddressId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ViktorEngmanInlämning.Entities.Customer", "Customer")
+                        .WithMany("CustomerAddresses")
+                        .HasForeignKey("CustomerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Address");
+
+                    b.Navigation("Customer");
+                });
+
+            modelBuilder.Entity("ViktorEngmanInlämning.Entities.OrderItem", b =>
+                {
+                    b.HasOne("ViktorEngmanInlämning.Entities.Product", "Product")
+                        .WithMany("OrderItems")
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("MormorDagnysInlämning.Entities.SalesOrder", "SalesOrder")
+                    b.HasOne("ViktorEngmanInlämning.Entities.SalesOrder", "SalesOrder")
                         .WithMany("OrderItems")
                         .HasForeignKey("SalesOrderId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -382,34 +555,99 @@ namespace MormorDagnysInlämning.Data.Migrations
                     b.Navigation("SalesOrder");
                 });
 
-            modelBuilder.Entity("MormorDagnysInlämning.Entities.Product", b =>
+            modelBuilder.Entity("ViktorEngmanInlämning.Entities.Product", b =>
                 {
-                    b.HasOne("MormorDagnysInlämning.Entities.Salesperson", "Salesperson")
+                    b.HasOne("ViktorEngmanInlämning.Entities.Salesperson", null)
                         .WithMany("Products")
-                        .HasForeignKey("SalesRepId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Salesperson");
+                        .HasForeignKey("SalespersonId");
                 });
 
-            modelBuilder.Entity("MormorDagnysInlämning.Entities.Salesperson", b =>
+            modelBuilder.Entity("ViktorEngmanInlämning.Entities.Salesperson", b =>
                 {
-                    b.HasOne("MormorDagnysInlämning.Entities.Product", "Product")
+                    b.HasOne("ViktorEngmanInlämning.Entities.Product", "Product")
                         .WithMany()
                         .HasForeignKey("ProductId");
 
                     b.Navigation("Product");
                 });
 
-            modelBuilder.Entity("MormorDagnysInlämning.Entities.SalesOrder", b =>
+            modelBuilder.Entity("ViktorEngmanInlämning.Entities.SupplierAddress", b =>
+                {
+                    b.HasOne("ViktorEngmanInlämning.Entities.Address", "Address")
+                        .WithMany("SupplierAddresses")
+                        .HasForeignKey("AddressId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ViktorEngmanInlämning.Entities.Salesperson", "Supplier")
+                        .WithMany("SupplierAddresses")
+                        .HasForeignKey("SupplierId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Address");
+
+                    b.Navigation("Supplier");
+                });
+
+            modelBuilder.Entity("ViktorEngmanInlämning.Entities.SupplierProduct", b =>
+                {
+                    b.HasOne("ViktorEngmanInlämning.Entities.Product", "Product")
+                        .WithOne("SupplierProduct")
+                        .HasForeignKey("ViktorEngmanInlämning.Entities.SupplierProduct", "ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ViktorEngmanInlämning.Entities.Salesperson", "Supplier")
+                        .WithMany()
+                        .HasForeignKey("SalespersonId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Product");
+
+                    b.Navigation("Supplier");
+                });
+
+            modelBuilder.Entity("ViktorEngmanInlämning.Entities.Address", b =>
+                {
+                    b.Navigation("CustomerAddresses");
+
+                    b.Navigation("SupplierAddresses");
+                });
+
+            modelBuilder.Entity("ViktorEngmanInlämning.Entities.AddressType", b =>
+                {
+                    b.Navigation("Addresses");
+                });
+
+            modelBuilder.Entity("ViktorEngmanInlämning.Entities.Customer", b =>
+                {
+                    b.Navigation("CustomerAddresses");
+                });
+
+            modelBuilder.Entity("ViktorEngmanInlämning.Entities.PostalAddress", b =>
+                {
+                    b.Navigation("Addresses");
+                });
+
+            modelBuilder.Entity("ViktorEngmanInlämning.Entities.Product", b =>
+                {
+                    b.Navigation("OrderItems");
+
+                    b.Navigation("SupplierProduct");
+                });
+
+            modelBuilder.Entity("ViktorEngmanInlämning.Entities.SalesOrder", b =>
                 {
                     b.Navigation("OrderItems");
                 });
 
-            modelBuilder.Entity("MormorDagnysInlämning.Entities.Salesperson", b =>
+            modelBuilder.Entity("ViktorEngmanInlämning.Entities.Salesperson", b =>
                 {
                     b.Navigation("Products");
+
+                    b.Navigation("SupplierAddresses");
                 });
 #pragma warning restore 612, 618
         }

@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Identity;
 
-namespace MormorDagnysInlämning.Entities;
+namespace ViktorEngmanInlämning.Entities;
 
 public class User:IdentityUser
 {

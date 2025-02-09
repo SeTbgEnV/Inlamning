@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MormorDagnysInlämning")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+774339baa4f276997e1ad28a3aaa95fb3d1c5a28")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+cf6f4b912b0ddc94924050376f9b79fc10967171")]
 [assembly: System.Reflection.AssemblyProductAttribute("MormorDagnysInlämning")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MormorDagnysInlämning")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -1,4 +1,4 @@
-namespace MormorDagnysInlämning.ViewModels.Account;
+namespace ViktorEngmanInlämning.ViewModels.Account;
 
 public class LoginViewModel
 {

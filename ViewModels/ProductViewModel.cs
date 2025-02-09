@@ -1,4 +1,4 @@
-namespace MormorDagnysInlämning.ViewModels;
+namespace ViktorEngmanInlämning.ViewModels;
 
 public class ProductViewModel
 {

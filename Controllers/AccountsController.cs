@@ -1,9 +1,9 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using MormorDagnysInlämning.Entities;
-using MormorDagnysInlämning.Services;
-using MormorDagnysInlämning.ViewModels.Account;
+using ViktorEngmanInlämning.Entities;
+using ViktorEngmanInlämning.Services;
+using ViktorEngmanInlämning.ViewModels.Account;
 
 namespace MormorDagnysInlämning.Controllers;
 
