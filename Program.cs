@@ -12,11 +12,11 @@ using ViktorEngmanInlämning.Interfaces;
 using ViktorEngmanInlämning.Services;
 
 var builder = WebApplication.CreateBuilder(args);
-var serverVersion = new MySqlServerVersion(new Version(9, 1, 0));
+// var serverVersion = new MySqlServerVersion(new Version(9, 1, 0));
 builder.Services.AddDbContext<DataContext>(options =>
 {
-    options.UseMySql(builder.Configuration.GetConnectionString("MySQL"), serverVersion);
-    //options.UseSqlite(builder.Configuration.GetConnectionString("DevConnection"));
+    //options.UseMySql(builder.Configuration.GetConnectionString("MySQL"), serverVersion);
+    options.UseSqlite(builder.Configuration.GetConnectionString("DevConnection"));
 });
 
 builder.Services.AddControllers()
@@ -70,7 +70,7 @@ var Services = scope.ServiceProvider;
 try
 {
     var context = Services.GetRequiredService<DataContext>();
-    // await context.Database.MigrateAsync();
+     await context.Database.MigrateAsync();
     // await Seed.LoadSalesPeople(context);
     // await Seed.LoadProducts(context);
     // await Seed.LoadSalesOrders(context);

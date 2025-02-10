@@ -11,8 +11,8 @@ using ViktorEngmanInlämning.Data;
 namespace MormorDagnysInlämning.Data.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20250209141843_TestMigration")]
-    partial class TestMigration
+    [Migration("20250210090327_SqliteDB")]
+    partial class SqliteDB
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

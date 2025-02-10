@@ -3,89 +3,59 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ViktorEngmanInlämning.Data;
 using ViktorEngmanInlämning.Entities;
+using ViktorEngmanInlämning.Interfaces;
+using ViktorEngmanInlämning.ViewModels.Supplier;
 
 namespace MormorDagnysInlämning.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
 [AllowAnonymous()]
-public class CompanyController(DataContext context) : ControllerBase
+public class CompanyController(ISupplierRepository repo) : ControllerBase
 {
-    private readonly DataContext _context = context;
-
+    private readonly ISupplierRepository _repo = repo;
 
     [HttpGet()]
-    public async Task<ActionResult> ListAllCompanies()
+    public async Task<IActionResult> ListAllSuppliers()
     {
-        var companies = await _context.Salespeople
-        .Select(company => new
+        try
         {
-            company.CompanyName,
-            company.SalespersonId,
-            company.SalesRep,
-            company.Address,
-            company.Email,
-            company.PhoneNumber
-        })
-        .ToListAsync();
-        return Ok(new { succes = true, StatusCode = 200, data = companies });
-    }
-    [HttpGet("{Name}")]
-    public async Task<ActionResult> GetCompanyByName(string Name)
-    {
-        var company = await _context.Salespeople
-        .Include(Salesperson => Salesperson.Products)
-        .Where(Salesperson => Salesperson.CompanyName == Name)
-        .Select(c => new
-        {
-            c.CompanyName,
-            c.SalespersonId,
-            c.SalesRep,
-            c.Address,
-            c.Email,
-            c.PhoneNumber,
-            Products = c.Products.Select(p => new
-            {
-                p.ProductId,
-                p.ItemNumber,
-                p.ProductName,
-                p.KgPrice,
-                p.ImageURL,
-                p.Description
-            }).ToList()
-        })
-        .SingleOrDefaultAsync();
-
-        if (company == null)
-        {
-            return BadRequest (new { succes = false, StatusCode = 400, message = "Company not found" });
+            // Steg 3.
+            return Ok(new { success = true, data = await _repo.List() });
         }
-        return Ok(new { succes = true, StatusCode = 200, data = company });
-    }
-    [HttpGet("{Name}/{id}")]
-    public async Task<ActionResult> GetProductById(string Name, int id)
-    {
-        var product = await _context.Salespeople
-        .Include(Salesperson => Salesperson.Products)
-        .Where(Salesperson => Salesperson.CompanyName == Name)
-        .SelectMany(Salesperson => Salesperson.Products)
-        .Where(product => product.ProductId == id)
-        .Select(p => new
+        catch (Exception ex)
         {
-            p.ProductId,
-            p.ItemNumber,
-            p.ProductName,
-            p.KgPrice,
-            p.ImageURL,
-            p.Description
-        })
-        .SingleOrDefaultAsync();
-
-        if (product == null)
-        {
-            return NotFound();
+            return NotFound($"Tyvärr hittade vi inget {ex.Message}");
         }
-        return Ok(new { succes = true, StatusCode = 200, data = product });
+
+    }
+
+    [HttpGet("{id}")]
+    public async Task<IActionResult> GetSupplier(int id)
+    {
+        // Steg 3.
+        try
+        {
+            var supplier = await _repo.GetSupplier(id);
+            return Ok(new { success = true, data = await _repo.GetSupplier(id) });
+        }
+        catch (Exception ex)
+        {
+            return NotFound(new { success = false, message = ex.Message });
+        }
+    }
+    
+    [HttpPost()]
+    public async Task<IActionResult> Add(SupplierPostViewModel model)
+    {
+        if (await _repo.Add(model))
+        {
+            return StatusCode(201);
+        }
+        else
+        {
+            return BadRequest();
+        }
     }
 
 }

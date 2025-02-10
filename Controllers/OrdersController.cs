@@ -9,7 +9,7 @@ namespace MormorDagnysInlämning.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    [Authorize(Roles = "SalesSupport, Admin")]
+    // [Authorize(Roles = "SalesSupport, Admin")]
     public class OrdersController(DataContext context) : ControllerBase
     {
         private readonly DataContext _context = context;

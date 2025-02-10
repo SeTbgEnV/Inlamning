@@ -108,7 +108,7 @@ public class SupplierRepository(DataContext context, IAddressRepository repo) : 
     }
   }
 
-  public async Task<IList<SuppliersViewModel>> ListAllSuppliers()
+  public async Task<IList<SuppliersViewModel>> List()
   {
     try
     {

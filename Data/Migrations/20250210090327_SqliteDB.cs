@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace MormorDagnysInlämning.Data.Migrations
 {
     /// <inheritdoc />
-    public partial class TestMigration : Migration
+    public partial class SqliteDB : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

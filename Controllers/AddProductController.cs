@@ -14,7 +14,7 @@ namespace MormorDagnysInlämning.Controllers
         private readonly DataContext _context = context;
 
         [HttpPost("{id}")]
-        [Authorize(Roles = "SalesSupport, Admin")]
+        // [Authorize(Roles = "SalesSupport, Admin")]
         public async Task<ActionResult> AddProductToSupplier(int id, ProductViewModel product)
         {
             var supplier = await _context.Salespeople
@@ -102,7 +102,7 @@ namespace MormorDagnysInlämning.Controllers
 
 
         [HttpPatch("{id}")]
-        [Authorize(Roles = "SalesSupport, Admin")]
+        // [Authorize(Roles = "SalesSupport, Admin")]
         public async Task<ActionResult> UpdatePrice(int id, ProductPriceViewModel product)
         {
             var productToUpdate = await _context.Products
@@ -127,7 +127,7 @@ namespace MormorDagnysInlämning.Controllers
             return NoContent();
         }
         [HttpDelete("{id}")]
-        [Authorize(Roles = "SalesSupport, Admin")]
+        // [Authorize(Roles = "SalesSupport, Admin")]
         public async Task<ActionResult> DeleteProduct(int id)
         {
             var productToDelete = await _context.Products
