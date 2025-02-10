@@ -38,7 +38,6 @@ namespace MormorDagnysInlämning.Controllers
                 ProductName = product.ProductName,
                 Description = product.Description,
                 KgPrice = product.Price,
-                SalesRepId = supplier.Id,
                 ImageURL = product.ImageURL,
                 ItemNumber = product.ItemNumber
             };

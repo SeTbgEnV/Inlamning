@@ -8,7 +8,6 @@ public class Product
     public double KgPrice { get; set; }
     public string ImageURL { get; set; }
     public string Description { get; set; }
-    public int SalesRepId { get; set; }
     public IList<OrderItem> OrderItems { get; set; }
     public SupplierProduct SupplierProduct { get; set; }
 }

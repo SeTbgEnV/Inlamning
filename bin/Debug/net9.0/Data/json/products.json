@@ -1,0 +1,162 @@
+[
+    {
+        "description": "white powder",
+        "imageURL": "Flour.jpg",
+        "itemNumber": "AAA123",
+        "kgPrice": 10,
+        "productName": "Flour",
+        "salesRepId": 1
+    },
+    {
+        "description": "Made by chickens",
+        "imageURL": "Egg.jpg",
+        "itemNumber": "AAA213",
+        "kgPrice": 8,
+        "productName": "Egg",
+        "salesRepId": 1
+    },
+    {
+        "description": "white powder but more sweet",
+        "imageURL": "Sugar.jpg",
+        "itemNumber": "AAA321",
+        "kgPrice": 13,
+        "productName": "Sugar",
+        "salesRepId": 1
+    },
+    {
+        "description": "white powder",
+        "imageURL": "Flour.jpg",
+        "itemNumber": "AAA123",
+        "kgPrice": 10,
+        "productName": "Flour",
+        "salesRepId": 1
+    },
+    {
+        "description": "Brown liquid",
+        "imageURL": "Syrup.jpg",
+        "itemNumber": "AAA222",
+        "kgPrice": 48,
+        "productName": "Syrup",
+        "salesRepId": 1
+    },
+    {
+        "description": "white powder",
+        "imageURL": "Flour.jpg",
+        "itemNumber": "BBB123",
+        "kgPrice": 17,
+        "productName": "Flour",
+        "salesRepId": 2
+    },
+    {
+        "description": "Made by chickens",
+        "imageURL": "Egg.jpg",
+        "itemNumber": "BBB213",
+        "kgPrice": 2,
+        "productName": "Egg",
+        "salesRepId": 2
+    },
+    {
+        "description": "white powder but more sweet",
+        "imageURL": "Suger.jpg",
+        "itemNumber": "BBB321",
+        "kgPrice": 16,
+        "productName": "Suger",
+        "salesRepId": 2
+    },
+    {
+        "description": "white powder",
+        "imageURL": "Flour.jpg",
+        "itemNumber": "BBB123",
+        "kgPrice": 10,
+        "productName": "Flour",
+        "salesRepId": 2
+    },
+    {
+        "description": "greenish powder",
+        "imageURL": "Tyme.jpg",
+        "itemNumber": "BBB333",
+        "kgPrice": 63,
+        "productName": "Tyme",
+        "salesRepId": 2
+    },
+    {
+        "description": "white powder",
+        "imageURL": "Flour.jpg",
+        "itemNumber": "CCC123",
+        "kgPrice": 7,
+        "productName": "Flour",
+        "salesRepId": 3
+    },
+    {
+        "description": "Made by chickens",
+        "imageURL": "Egg.jpg",
+        "itemNumber": "CCC213",
+        "kgPrice": 4,
+        "productName": "Egg",
+        "salesRepId": 3
+    },
+    {
+        "description": "white powder but more sweet",
+        "imageURL": "Suger.jpg",
+        "itemNumber": "CCC333",
+        "kgPrice": 17,
+        "productName": "Suger",
+        "salesRepId": 3
+    },
+    {
+        "description": "white powder",
+        "imageURL": "Flour.jpg",
+        "itemNumber": "CCC321",
+        "kgPrice": 12,
+        "productName": "Flour",
+        "salesRepId": 3
+    },
+    {
+        "description": "Brown powder",
+        "imageURL": "Coco.jpg",
+        "itemNumber": "CCC111",
+        "kgPrice": 28,
+        "productName": "Coco powder",
+        "salesRepId": 3
+    },
+    {
+        "description": "white powder",
+        "imageURL": "Flour.jpg",
+        "itemNumber": "DDD222",
+        "kgPrice": 9,
+        "productName": "Flour",
+        "salesRepId": 4
+    },
+    {
+        "description": "Made by chickens",
+        "imageURL": "Egg.jpg",
+        "itemNumber": "DDD123",
+        "kgPrice": 7,
+        "productName": "Egg",
+        "salesRepId": 4
+    },
+    {
+        "description": "white powder but more sweet",
+        "imageURL": "Suger.jpg",
+        "itemNumber": "DDD213",
+        "kgPrice": 14,
+        "productName": "Suger",
+        "salesRepId": 4
+    },
+    {
+        "description": "white powder",
+        "imageURL": "Flour.jpg",
+        "itemNumber": "DDD321",
+        "kgPrice": 11,
+        "productName": "Flour",
+        "salesRepId": 4
+    },
+    {
+        "description": "yellow powder",
+        "imageURL": "Saffran.jpg",
+        "itemNumber": "DDD111",
+        "kgPrice": 75000,
+        "productName": "Saffran",
+        "salesRepId": 4
+    }
+]

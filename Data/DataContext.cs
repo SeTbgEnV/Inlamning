@@ -4,8 +4,10 @@ using ViktorEngmanInlämning.Entities;
 
 namespace ViktorEngmanInlämning.Data
 {
-    public class DataContext(DbContextOptions<DataContext> options) : IdentityDbContext<User>(options)
+    public class DataContext : IdentityDbContext<User>
     {
+        public DataContext(DbContextOptions<DataContext> options) : base(options) { }
+
         public DbSet<Supplier> Salespeople { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<SalesOrder> SalesOrders { get; set; }
@@ -20,12 +22,15 @@ namespace ViktorEngmanInlämning.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            base.OnModelCreating(modelBuilder);
-
             modelBuilder.Entity<OrderItem>().HasKey(o => new { o.ProductId, o.SalesOrderId });
-            modelBuilder.Entity<SupplierProduct>().HasKey(s => new { s.ProductId, s.SalespersonId });
+            modelBuilder.Entity<SupplierProduct>().HasKey(s => new { s.ProductId, s.SupplierId });
             modelBuilder.Entity<CustomerAddress>().HasKey(c => new { c.AddressId, c.CustomerId });
             modelBuilder.Entity<SupplierAddress>().HasKey(s => new { s.AddressId, s.SupplierId });
+
+            modelBuilder.Entity<Supplier>()
+                .HasOne(s => s.SupplierProducts)
+                .WithOne(sp => sp.Supplier)
+                .HasForeignKey<SupplierProduct>(sp => sp.SupplierId);
 
             base.OnModelCreating(modelBuilder);
         }
