@@ -1,12 +1,12 @@
 using Microsoft.EntityFrameworkCore;
+using ViktorEngmanInlämning.ViewModels.Supplier;
 using ViktorEngmanInlämning.Data;
 using ViktorEngmanInlämning.Entities;
 using ViktorEngmanInlämning.Helpers;
 using ViktorEngmanInlämning.Interfaces;
 using ViktorEngmanInlämning.ViewModels.Address;
-using ViktorEngmanInlämning.ViewModels.Supplier;
 
-namespace eshop.api;
+namespace MormorDagnysInlämning.Repositories;
 
 public class SupplierRepository(DataContext context, IAddressRepository repo) : ISupplierRepository
 {
@@ -23,7 +23,7 @@ public class SupplierRepository(DataContext context, IAddressRepository repo) : 
         throw new DagnysException("Leverantören finns redan");
       }
 
-      var supplier = new Salesperson
+      var supplier = new Supplier
       {
         CompanyName = model.CompanyName,
         Email = model.Email,
@@ -56,7 +56,7 @@ public class SupplierRepository(DataContext context, IAddressRepository repo) : 
     try
     {
       var supplier = await _context.Salespeople
-      .Where(s => s.SalespersonId == id)
+      .Where(s => s.Id == id)
       .Include(s => s.SupplierAddresses)
         .ThenInclude(s => s.Address)
         .ThenInclude(s => s.PostalAddress)
@@ -73,7 +73,7 @@ public class SupplierRepository(DataContext context, IAddressRepository repo) : 
 
       var view = new SupplierViewModel
       {
-        SalespersonId = supplier.SalespersonId,
+        SalespersonId = supplier.Id,
         CompanyName = supplier.CompanyName,
         Email = supplier.Email,
         Phone = supplier.PhoneNumber
@@ -120,7 +120,7 @@ public class SupplierRepository(DataContext context, IAddressRepository repo) : 
       {
         var view = new SuppliersViewModel
         {
-          SalespersonId = supplier.SalespersonId,
+          SalespersonId = supplier.Id,
           CompanyName = supplier.CompanyName,
           Email = supplier.Email,
           Phone = supplier.PhoneNumber

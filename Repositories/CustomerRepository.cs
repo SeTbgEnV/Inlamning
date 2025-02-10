@@ -6,7 +6,7 @@ using ViktorEngmanInlämning.Interfaces;
 using ViktorEngmanInlämning.ViewModels.Address;
 using ViktorEngmanInlämning.ViewModels.Customer;
 
-namespace eshop.api;
+namespace MormorDagnysInlämning.Repositories;
 
 public class CustomerRepository(DataContext context, IAddressRepository repo) : ICustomerRepository
 {

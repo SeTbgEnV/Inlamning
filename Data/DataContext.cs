@@ -6,7 +6,7 @@ namespace ViktorEngmanInlämning.Data
 {
     public class DataContext(DbContextOptions<DataContext> options) : IdentityDbContext<User>(options)
     {
-        public DbSet<Salesperson> Salespeople { get; set; }
+        public DbSet<Supplier> Salespeople { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<SalesOrder> SalesOrders { get; set; }
         public DbSet<OrderItem> OrderItems { get; set; }

@@ -1,6 +1,5 @@
 using System.Text;
 using System.Text.Json.Serialization;
-using eshop.api;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -10,6 +9,7 @@ using ViktorEngmanInlämning.Data;
 using ViktorEngmanInlämning.Entities;
 using ViktorEngmanInlämning.Interfaces;
 using ViktorEngmanInlämning.Services;
+using MormorDagnysInlämning.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 // var serverVersion = new MySqlServerVersion(new Version(9, 1, 0));
@@ -70,7 +70,7 @@ var Services = scope.ServiceProvider;
 try
 {
     var context = Services.GetRequiredService<DataContext>();
-     await context.Database.MigrateAsync();
+    // await context.Database.MigrateAsync();
     // await Seed.LoadSalesPeople(context);
     // await Seed.LoadProducts(context);
     // await Seed.LoadSalesOrders(context);

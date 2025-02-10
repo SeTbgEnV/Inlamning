@@ -69,7 +69,7 @@ public class Seed
             Console.WriteLine("Salespeople not loaded");
         }
         var json = File.ReadAllText("Data/json/salespeople.json");
-        var salesPeople = JsonSerializer.Deserialize<List<Salesperson>>(json, options);
+        var salesPeople = JsonSerializer.Deserialize<List<Supplier>>(json, options);
         if (salesPeople is not null && salesPeople.Count > 0)
         {
             await context.Salespeople.AddRangeAsync(salesPeople);

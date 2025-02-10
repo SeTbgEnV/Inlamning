@@ -4,7 +4,7 @@ using ViktorEngmanInlämning.Entities;
 using ViktorEngmanInlämning.Interfaces;
 using ViktorEngmanInlämning.ViewModels.Address;
 
-namespace eshop.api;
+namespace MormorDagnysInlämning.Repositories;
 
 public class AddressRepository(DataContext context) : IAddressRepository
 {
