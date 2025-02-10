@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
+FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
 
 WORKDIR /app
 
@@ -18,4 +18,4 @@ COPY --from=build /app/Release ./
 
 EXPOSE 8080
 
-ENTRYPOINT ["dotnet", "eshop.api.dll"]
+ENTRYPOINT ["dotnet", "MormorDagnysInlämning.dll"]
